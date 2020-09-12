@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Event Bubbling and event arguments</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>.myDiv {width: 25px; height: 25px;background-color:yellow; margin:1px;}
+        </style>
+    </head>
+    <body>
+        
+<!--        In a new HTML page add two div’s, each with a unique id
+Style both id’s with this class: 
+.mydiv {width: 25px; height: 25px;background-color:yellow; margin:1px;}-->
+
+
+        <div id ="div1" class="myDiv"> div1</div>
+        <button id="knap1">Div1</button>
+        <div id ="div2" class = "myDiv"> div2</div>
+        <button id="knap2">Div2</button>
+
+
+        <!--a)  Add a click handler to each id and write code, so when clicked, each div will write to the console "Hi from idOfTheDiv".              -->
+
+        <script>
+            var knap1 = document.getElementById('knap1');
+            knap1.onclick = function () {
+                console.log('Hi from idOfTheDiv');
+            };
+
+            var knap2 = document.getElementById('knap2');
+            knap2.onclick = function () {
+                console.log('Hi from idOfTheDiv');
+            }
+        </script>
+
+        <br>
+        <br>
+        <br>
+        <!--b)  Now, using cut and paste, add 10 more divs (still each with a unique id).-->
+        
+<!--        Adding an event handler to each div would be cumbersome and non-efficient (what if you had been asked to add 100 or thousands of new id’s).
+We will use JavaScript's event bubbling mechanism to solve this with only a single event handler.
+Add a new div (without the myDiv class) with the id="outer" around all our div’s and assign a single event handler (with the event argument)  to this div.
+Implement code to write to the console:
+The value of id pointed to by the target property (which you get from the event argument)
+Hint: function (e) { var target = e.target}
+Make SURE you understand what happened here-->
+
+
+        <div id ="outer">
+
+            <p id="div01">Click me.</p>
+            <p id="div02">Click me.</p>
+            <p id="div03">Click me.</p>
+            <p id="div04">Click me.</p>
+            <p id="div05">Click me.</p>
+            <p id="div06">Click me.</p>
+            <p id="div07">Click me.</p>
+            <p id="div08">Click me.</p>
+            <p id="div09">Click me.</p>
+            <p id="div10">Click me.</p>
+
+
+        </div>
+
+        <script>
+            
+            document.getElementById("outer").onclick=myFunction;
+            
+            
+            function myFunction(e) {
+                var target = e.target;
+                document.getElementById("output").innerHTML = "The div id is: " + target.id;
+            }
+        </script>
+
+<!--c) 
+Add an empty paragraph tag, with an id, to your HTML and change the code for both exercises above, 
+so that output is not written to the console, but into this paragraph.
+Hint: Use the innerText property of an Element-->
+
+    <p id = "output"> <p/>
+      
+         
+
+    </body>
+</html>

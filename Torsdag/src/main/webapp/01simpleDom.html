@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple DOM Manipulation and Events</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        
+<!--Add three divs to an HTML page, each with a unique id-->
+        <div id="div1">div1</div>
+        <div id ="div2">div2</div>
+        <div id = "div3">div3</div>
+        
+<!--a) When the page initially is loaded all divs should be given a colour of your choice
+    Hints: use document.getElementsByTagName() (will return an array of Dom Nodes) and element.style.backgroundColor -->
+
+        <script> var divs = document.getElementsByTagName("div");
+            for (var i = 0; i < divs.length; i++) {
+                if (i === 0) {
+                    divs[i].style.backgroundColor = "lightblue";
+                } else {
+                    divs[i].style.backgroundColor = "magenta";
+                }
+            }
+
+        </script>
+
+<!--b) Add a button, and assign a click handler to the button. When the button is clicked each div should be given a unique colour.
+    Hints: use document.getElementById(..) to get the individual div’s-->
+
+        <button id="myBtn">Try it</button> 
+<p id="demo"></p>
+        <script>document.getElementById("myBtn").addEventListener("click", function ()
+            {
+                document.getElementById("div1").style.backgroundColor="red";
+                document.getElementById("div2").style.backgroundColor="lightblue";
+                document.getElementById("div3").style.backgroundColor="green";
+            });
+
+        </script>
+
+    </body>
+</html>
